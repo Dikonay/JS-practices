@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>阅读完才能注册</title>
+	<style>
+		#info{
+			width: 200px;
+			height: 200px;
+			overflow: auto;
+			/* overflow: auto; 超出的部分就会用到滚动条 */
+         
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="info">
+		<h3>请仔细阅读以下协议：</h3>
+		<p>必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！必须阅读完才能注册！</p>
+	    
+	</div>
+	<input id="agree" type="checkbox" disabled="disabled" />我同意以上协议 <br />
+	<input id="register" type="button" disabled="disabled" value="注册"  style="width: 100px;"/>
+	<!--  disabled 属性可以设置一个元素是否被禁用-->
+	<script>
+		var info= document.getElementById("info");
+		var register= document.getElementById("register");
+		var agree= document.getElementById("agree");
+		// 为info绑定一个 滚动条滚动的事件
+		info.onscroll = function(){
+			if(info.scrollHeight-info.scrollTop==info.clientHeight){
+				agree.disabled = false;
+				register.disabled =false;
+			}
+		}
+      
+	</script>
+</body>
+</html>
