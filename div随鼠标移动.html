@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>div随鼠标移动</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: indianred;
+			position: absolute;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+	<script>
+		var box= document.getElementById("box");
+		//把事件绑定在 整个文档 document 中
+		document.onmousemove = function(event){
+			box.style.left= event.pageX + "px";
+			box.style.top= event.pageY + "px";
+        //IE8不支持 pageX  pageY
+		}
+	</script>
+</body>
+</html>
