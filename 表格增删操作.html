@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+		
+		<table id="table" class="table table-striped">
+			<tr class="success">
+				<th>姓名</th>
+				<th>邮箱</th>
+				<th>Salary</th>
+				<th> </th>
+			</tr>
+			<tr id="emp1" >
+				<td>汤姆</td>
+				<td>123345@qq.com</td>
+				<td>5000</td>
+				<td> <a>Delect</a> </td>
+
+			</tr>
+			<tr id="emp2">
+				<td>乔伊</td>
+				<td>123345@qq.com</td>
+				<td>10000</td>
+				<td><a>Delect</a></td>
+
+			</tr>
+			<tr id="emp3">
+				<td>杰米</td>
+				<td>123345@qq.com</td>
+				<td>8000</td>
+				<td><a>Delect</a></td>
+
+			</tr>
+			
+			
+		</table>
+		
+		
+		<div id="info" >
+			<h3>请添加新员工</h3>
+			姓名：<input type="text" id="username"  />  <br />
+			邮箱：<input type="text"  id="email"/>  <br />
+			薪资：<input type="text"  id="salary"  />  <br />
+			<input id="submit" type="button" value="提交" class="btn btn-primary" />
+		</div>		
+			
+		
+	
+	
+	<script>
+		var table = document.getElementById("table");
+		var info = document.getElementById("info");
+        var alla = document.getElementsByTagName("a");
+		
+		
+// 删除某行
+   function del(){
+	   for(var i=0;i<alla.length;i++){
+			
+			alla[i].onclick=function(){
+				//console.log(this);  this就是a
+				var tr = this.parentElement.parentElement;
+                console.log(tr);
+				if(confirm("你确定要删除吗？")){
+					tr.parentElement.removeChild(tr);
+				    // 不用去获取tr的父节点tbody,直接用tr.parentElement.removeChild(tr)的方式
+				}
+			}
+		}
+		
+   }
+		
+	del();	
+  
+//提交到表格中	
+
+        
+		var submit = document.getElementById("submit");
+       var tbody = document.getElementsByTagName("tbody")[0];
+	  var username = document.getElementById("username");
+	  var email = document.getElementById("email");
+	  var salary = document.getElementById("salary");
+		submit.onclick=function(){
+			var tr =document.createElement("tr");
+			
+			tr.innerHTML="<td>"+username.value+"</td>"+"<td>"+email.value+"</td>"+"<td>"+salary.value+"</td>"+"<td><a>Delect</a></td>";
+           // table.appendChild(tr);
+		   console.log(tr);
+		   tbody.appendChild(tr);
+		   del();
+			
+		} 
+		
+		
+		
+		
+	</script>
+</body>
+</html>
