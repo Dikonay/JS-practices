@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>全选/全不选</title>
+	<style>
+		form{
+			position: absolute;
+			left: 50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<form method="post" action=""> 
+		
+	   <div>
+		   你爱好的运动是什么？
+	       <input type="checkbox" id="or" />全选/全不选
+	   </div>
+	   
+	   <input type="checkbox" name="sport"  value="足球"/>足球
+	   <input type="checkbox" name="sport"  value="篮球"/>篮球
+	   <input type="checkbox" name="sport" value="乒乓球"/>乒乓球
+	   <input type="checkbox" name="sport" value="游泳" />游泳  <br />
+	   <input id="all" type="button" value="全选" />
+	   <input id="notall" type="button" value="全不选" />
+	   <input id="opposite" type="button" value="反选" />
+	   <input id="submit" type="button" value="提交" />
+	
+	 
+	</form>
+	
+	
+	<script>
+	        // 全选
+			var all = document.getElementById("all");
+			var sport = document.getElementsByName("sport");
+			all.onclick = function(){
+				
+				for(var i=0;i<sport.length;i++){
+					// console.log(sport[i].value);
+					sport[i].checked = true;
+				}
+			};
+			// 全不选
+			var notall = document.getElementById("notall");
+			notall.onclick = function(){
+				for(var i=0;i<sport.length;i++){
+					if(sport[i].checked){
+						sport[i].checked=false;
+					}
+					
+				}
+			};
+			// 反选
+			var opposite = document.getElementById("opposite");
+            opposite.onclick = function(){
+				for(var i=0;i<sport.length;i++){	
+			       sport[i].checked=!sport[i].checked;
+				
+				}
+			};
+			// 提交
+			var submit = document.getElementById("submit");
+			submit.onclick = function(){
+				for(var i=0;i<sport.length;i++){	
+					if(sport[i].checked){
+						console.log("您选择的爱好有:"+sport[i].value);
+					}
+				
+				}
+				
+			};
+			
+			// 全选/全不选
+			var or = document.getElementById("or");
+			or.onclick = function(){
+				for(var i=0;i<sport.length;i++){	
+					if(sport[i].checked){
+						sport[i].checked=false;
+					}else{
+						sport[i].checked=true;
+					}
+				
+				}
+			}
+
+
+		
+		
+		
+	</script>
+</body>
+</html>
