@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>DOM查询</title>
+	<style>
+		#box1{
+			border: black solid 1px;
+			width: 400px;
+			position: absolute;
+			
+			
+		}
+		ul li{
+			
+			background-color: #7FFFD4;
+			width: 50px;
+			border: black solid 1px;
+			margin: 10px;
+		}
+		
+		#but{
+			position: absolute;
+			right: 600px;
+			
+		}
+		
+		
+		#but input{
+			width: 200px;
+			margin: 5px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="box1">
+		<p>你喜欢哪个城市？</p>
+		<ul id="city">
+			<li id="bj">北京</li>
+			<li>上海</li>
+			<li>东京</li>
+			<li>首尔</li>
+		</ul>
+	</div>
+	
+	<div id="but">
+		<input id="bt1" type="button" value="创建一个广州节点,添加到city下" /> <br />
+		<input id="bt2" type="button" value="将广州节点插入到北京前面" /> <br />
+		<input id="bt3" type="button" value="使用广州节点替换北京节点" /> <br />
+		<input id="bt4" type="button" value="删除北京节点" /> <br />
+		<input id="bt5" type="button" value="读取city内的HTML代码" /> <br />
+		<input id="bt6" type="button" value="设置北京内的HTML代码" />
+
+	</div>
+	
+	<script>
+		var bt1 = document.getElementById("bt1");
+		var city = document.getElementById("city");
+		// var li= document.getElementsByTagName(li)[0];
+       
+        // 创建一个广州节点,添加到city下
+		bt1.onclick = function(){
+			// 注意是: document.createElement
+	        var gz=document.createElement("li");
+	        gz.innerHTML="广州";
+			city.appendChild(gz);
+		};
+		
+		// 将广州节点插入到北京前面
+		var bj= document.getElementById("bj");
+
+		bt2.onclick = function(){
+			var gz=document.createElement("li");
+			gz.innerHTML="广州";
+			city.insertBefore(gz,bj);
+		};
+		
+		// 使用广州节点替换北京节点
+		bt3.onclick = function(){
+			var gz=document.createElement("li");
+			gz.innerHTML="广州";
+			city.replaceChild(gz,bj);
+		};
+		// 删除北京节点
+		bt4.onclick = function(){
+			city.removeChild(bj);
+		};
+		
+		// 读取city内的HTML代码
+		bt5.onclick = function(){
+			for(var i=0;i<city.children.length;i++)
+			console.log(city.children[i].innerHTML);
+		};
+		
+		// 设置北京内的HTML代码
+		bt6.onclick = function(){
+			bj.innerHTML="我爱北京~";
+		};
+		
+		
+		
+	</script>
+</body>
+</html>
