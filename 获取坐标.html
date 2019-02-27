@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>获取坐标</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#big{
+			border: #000000 solid 1px;
+			width: 200px;
+			height: 200px;
+			
+		}
+		#small{
+			border: #000000 solid 1px;
+			width: 200px;
+			height: 50px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="big">
+		
+	</div>
+	<div id="small">
+		
+	</div>
+	
+	<script>
+		var big = document.getElementById("big");
+		var small = document.getElementById("small");
+        big.onmousemove = function(event){
+	     //事件对象:在事件对象中封装了当前事件相关的一切信息,比如鼠标的坐标...                                                                                                                                                                                                                                                                                                                                                                                                          
+		 small.innerText="x="+event.clientX+",y="+event.clientY ;
+		 
+		 //如果某些浏览器找不到clientX,就用window.clientX
+		 
+		 //clientX 获取当前鼠标指针的水平坐标
+		 //clientY 获取当前鼠标指针的垂直坐标
+		 console.log(event);
+		}
+		
+	</script>
+</body>
+</html>
